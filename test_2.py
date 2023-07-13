@@ -29,6 +29,9 @@ failed_jobs = len(df[df['Status'] == 'Failed'])
 not_scheduled_jobs = len(df[df['Status'] == 'Not Scheduled'])
 total_records_processed = df['RecordsProcessed'].sum()
 
+selected_date = st.date_input('Select a date', pd.to_datetime('today').date())
+df_selected = df[df['Started Time'].dt.date == selected_date]
+
 # Create graph for job status
 status_data = df['Status'].value_counts()
 status_labels = status_data.index.tolist()
