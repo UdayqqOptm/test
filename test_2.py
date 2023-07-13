@@ -47,7 +47,7 @@ execution_fig = go.Figure(data=[go.Histogram(x=execution_times, nbinsx=10)])
 execution_fig.update_layout(title='Job Execution Time')
 
 # Display the report
-st.title('Batch Summary Report')
+st.title('Batch Summary Report',selected_date)
 
 # Display overall metrics as a table
 st.header('Overall Metrics')
