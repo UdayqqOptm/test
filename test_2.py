@@ -49,19 +49,15 @@ execution_fig.update_layout(title='Job Execution Time')
 # Display the report
 st.title('Batch Summary Report')
 
-# Display overall metrics as a table with highlighting
+# Display overall metrics as a table
 st.header('Overall Metrics')
 metrics_data = {
     'Metric': ['Total Jobs', 'Scheduled Jobs for Today', 'Completed Jobs', 'Failed Jobs', 'Not Scheduled Jobs', 'Total Records Processed'],
     'Value': [total_jobs, scheduled_jobs, completed_jobs, failed_jobs, not_scheduled_jobs, total_records_processed]
 }
 metrics_df = pd.DataFrame(metrics_data)
+st.table(metrics_df)
 
-# Create a Styler object to apply highlighting to the table
-highlighted_metrics_df = metrics_df.style.applymap(lambda x: 'background-color: red' if x == failed_jobs else '')
-
-# Display the table with highlighting
-st.table(highlighted_metrics_df)
 
 
 
