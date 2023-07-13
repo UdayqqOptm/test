@@ -49,14 +49,15 @@ execution_fig.update_layout(title='Job Execution Time')
 # Display the report
 st.title('Batch Summary Report')
 
-# Display overall metrics
+# Display overall metrics as a table
 st.header('Overall Metrics')
-st.markdown(f'Total Jobs: {total_jobs}')
-st.markdown(f'Scheduled Jobs for Today: {scheduled_jobs}')
-st.markdown(f'Completed Jobs: {completed_jobs}')
-st.markdown(f'Failed Jobs: {failed_jobs}')
-st.markdown(f'Not Scheduled Jobs: {not_scheduled_jobs}')
-st.markdown(f'Total Records Processed: {total_records_processed}')
+metrics_data = {
+    'Metric': ['Total Jobs', 'Scheduled Jobs for Today', 'Completed Jobs', 'Failed Jobs', 'Not Scheduled Jobs', 'Total Records Processed'],
+    'Value': [total_jobs, scheduled_jobs, completed_jobs, failed_jobs, not_scheduled_jobs, total_records_processed]
+}
+metrics_df = pd.DataFrame(metrics_data)
+st.table(metrics_df)
+
 
 # Display graphs
 st.header('Job Metrics')
